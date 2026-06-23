@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pashimo Operational Integrity System</title>
+    <style>
+        body { 
+            background: #0d0d0d; 
+            color: #ffffff; 
+            font-family: system-ui, -apple-system, sans-serif; 
+            padding: 20px;
+            margin: 0;
+        }
+        .matrix-container { 
+            border: 2px solid #d4af37; 
+            padding: 30px; 
+            border-radius: 12px; 
+            max-width: 650px; 
+            background: #141414;
+            margin: 40px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .header-title {
+            color: #d4af37;
+            font-size: 1.4rem;
+            margin-top: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #222;
+            padding-bottom: 15px;
+        }
+        .input-row {
+            display: flex; 
+            gap: 12px;
+            margin: 25px 0;
+        }
+        input, textarea { 
+            background: #1a1a1a; 
+            border: 1px solid #333; 
+            color: #fff; 
+            padding: 12px; 
+            font-size: 1rem;
+            border-radius: 6px;
+            outline: none;
+        }
+        input:focus, textarea:focus {
+            border-color: #d4af37;
+        }
+        button { 
+            background: #d4af37; 
+            border: none; 
+            color: #111; 
+            padding: 12px 25px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #f4cf57;
+        }
+        #audit-output { 
+            margin-top: 20px; 
+            padding: 20px; 
+            border-radius: 8px; 
+            display: none; 
+            line-height: 1.6; 
+            font-size: 0.95rem;
+        }
+        .success-node { 
+            background: rgba(212, 175, 55, 0.08); 
+            border: 1px solid #d4af37; 
+            color: #eee;
+        }
+        .error-node { 
+            background: rgba(231, 76, 60, 0.08); 
+            border: 1px solid #e74c3c; 
+            color: #fcc;
+        }
+        .data-label { color: #d4af37; font-weight: bold; }
+        
+        /* Hidden Admin Deck Styling */
+        .admin-deck {
+            margin-top: 60px;
+            border: 1px dashed #444;
+            padding: 20px;
+            border-radius: 8px;
+            background: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="matrix-container">
+        <h3 class="header-title">🛡️ Pashimo Integrity Lookup Engine</h3>
+        <p style="color: #aaa; font-size: 0.9rem; line-height: 1.5;">
+            Query verified file references directly against our active system database records.
+        </p>
+        
+        <div class="input-row">
+            <input type="text" id="fileReferenceInput" placeholder="Enter File Reference (e.g., PAS-7492)">
+            <button onclick="executeLedgerAudit()">Query System</button>
+        </div>
+
+        <div id="audit-output"></div>
+    </div>
+
+    <div class="matrix-container admin-deck">
+        <h4 style="color: #888; margin: 0 0 15px 0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px;">⚙️ Internal Desk Input (WG 35 Office Records)</h4>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <input type="text" id="newCode" placeholder="Assign Reference Code (e.g., PAS-1001)">
+            <input type="text" id="newName" placeholder="Client Full Name">
+            <input type="text" id="newService" placeholder="Service Track (e.g., New Passport, Driver Route)">
+            <textarea id="newStatus" placeholder="Current Operational Status Update Description..." rows="2"></textarea>
+            <button onclick="commitToLocalRegister()" style="background: #444; color: #fff;">Commit to Live Register Memory</button>
+        </div>
+    </div>
+
+    <script>
+        // CORE PLATFORM STORAGE REFERENCE MATRIX
+        const authenticatedRecords = {
+            "PAS-7492": {
+                name: "Isabirye Latif",
+                service: "Express Passport Processing (Chap Chap!)",
+                status: "Interpol Cleared & Attested. Document forwarded to Ministry Hub.",
+                lastChecked: "2026-06-22"
+            }
+        };
+
+        // AUDIT CHECK LOGIC
+        function executeLedgerAudit() {
+            const searchToken = document.getElementById("fileReferenceInput").value.trim().toUpperCase();
+            const outputElement = document.getElementById("audit-output");
+            
+            if (!searchToken) {
+                outputElement.style.display = "block";
+                outputElement.className = "error-node";
+                outputElement.innerHTML = "❌ <b>System Alert:</b> Input reference cannot be null.";
+                return;
+            }
+
+            if (authenticatedRecords[searchToken]) {
+                const Record = authenticatedRecords[searchToken];
+                outputElement.style.display = "block";
+                outputElement.className = "success-node";
+                outputElement.innerHTML = `
+                    🟢 <b>RECORD MATCH FOUND</b><br>
+                    <span class="data-label">Client Name:</span> ${Record.name}<br>
+                    <span class="data-label">Service Tract:</span> ${Record.service}<br>
+                    <span class="data-label">Live Status:</span> ${Record.status}<br>
+                    <span class="data-label">System Sync:</span> ${Record.lastChecked}
+                `;
+            } else {
+                outputElement.style.display = "block";
+                outputElement.className = "error-node";
+                outputElement.innerHTML = `
+                    ❌ <b>UNREGISTERED REFERENCE SEQUENCE</b><br>
+                    The code token <code>"${searchToken}"</code> does not match any authenticated record inside our system register.<br>
+                    ⚠️ <b>Action:</b> Visit the Nateete Office Hub Desk WG 35 or verify with management lines (+256 787166113).
+                `;
+            }
+        }
+
+        // DESK DATA CONTROL MANAGEMENT LOGIC
+        function commitToLocalRegister() {
+            const code = document.getElementById("newCode").value.trim().toUpperCase();
+            const name = document.getElementById("newName").value.trim();
+            const service = document.getElementById("newService").value.trim();
+            const status = document.getElementById("newStatus").value.trim();
+            const currentDate = new Date().toISOString().split('T')[0];
+
+            if (!code || !name || !status) {
+                alert("Operational Error: Code, Client Name, and Status options cannot be blank.");
+                return;
+            }
+
+            // Dynamically write data keys directly into application memory array
+            authenticatedRecords[code] = {
+                name: name,
+                service: service || "General Agency Handling",
+                status: status,
+                lastChecked: currentDate
+            };
+
+            alert("Success: Reference token " + code + " has been written into local ledger state memory.");
+            
+            // Clear entry inputs
+            document.getElementById("newCode").value = "";
+            document.getElementById("newName").value = "";
+            document.getElementById("newService").value = "";
+            document.getElementById("newStatus").value = "";
+        }
+    </script>
+</body>
+</html>

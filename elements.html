@@ -1,0 +1,69 @@
+<section style="margin-top: 80px; background: #ffffff; padding: 50px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+    <div class="wide-container">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; color: #1a1a1a;">Our Operational Roadmap</h2>
+            <p style="color: #666;">How we engineer your transit from our Nateete Center to your global destination.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div style="background: #fdfdfd; padding: 30px; border-radius: 8px; border-left: 4px solid #d4af37; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #d4af37; margin-bottom: 10px;">01</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a;">Submission & Screening</h4>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">Bring your passport to our Nateete Business Centre desk. Tour itineraries are customized instantly, or job profiles are cross-checked with Gulf system availability.</p>
+            </div>
+
+            <div style="background: #fdfdfd; padding: 30px; border-radius: 8px; border-left: 4px solid #1a1a1a; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #1a1a1a; margin-bottom: 10px;">02</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a;">Vetting & Allocation</h4>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">Flight routing logic is locked down with airlines, or your recruitment documentation undergoes government clearing procedures seamlessly.</p>
+            </div>
+
+            <div style="background: #fdfdfd; padding: 30px; border-radius: 8px; border-left: 4px solid #d4af37; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                <div style="font-size: 2.5rem; font-weight: bold; color: #d4af37; margin-bottom: 10px;">03</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 10px; color: #1a1a1a;">Visa Issue & Departure</h4>
+                <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">Once your allocation codes match, your clearance is handed over. For travelers, hotel packages activate; for deployments, processing fees clear as you prepare to fly.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section style="margin-top: 80px;">
+    <div class="wide-container" style="max-width: 900px;">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2rem; color: #1a1a1a;">Frequently Asked Questions</h2>
+            <p style="color: #666;">Clear, transparent processing logic for our clients.</p>
+        </div>
+
+        <div style="background: white; border: 1px solid #eaeaea; border-radius: 6px; margin-bottom: 15px; overflow: hidden;">
+            <button onclick="toggleFaq('faq-1')" style="width: 100%; background: none; border: none; padding: 20px; text-align: left; font-size: 1.1rem; font-weight: 600; color: #1a1a1a; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>How long does the recruitment visa processing take?</span>
+                <span style="color: #d4af37;">+</span>
+            </button>
+            <div id="faq-1" style="display: none; padding: 0 20px 20px 20px; color: #666; font-size: 0.95rem; line-height: 1.6; border-top: 1px solid #f9f9f9;">
+                Standard processing averages 21 to 45 days from the moment your medical results are successfully validated and uploaded to the Gulf institutional register.
+            </div>
+        </div>
+
+        <div style="background: white; border: 1px solid #eaeaea; border-radius: 6px; margin-bottom: 15px; overflow: hidden;">
+            <button onclick="toggleFaq('faq-2')" style="width: 100%; background: none; border: none; padding: 20px; text-align: left; font-size: 1.1rem; font-weight: 600; color: #1a1a1a; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                <span>Can safari packages be fully customized for private groups?</span>
+                <span style="color: #d4af37;">+</span>
+            </button>
+            <div id="faq-2" style="display: none; padding: 0 20px 20px 20px; color: #666; font-size: 0.95rem; line-height: 1.6; border-top: 1px solid #f9f9f9;">
+                Yes. Our travel desk at Nateete handles personalized itinerary building, private custom cruiser allocations, and specific luxury or mid-range lodge selections matching your budget.
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function toggleFaq(id) {
+        const item = document.getElementById(id);
+        if (item.style.display === "none" || item.style.display === "") {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    }
+</script>

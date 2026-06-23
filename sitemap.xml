@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+  =======================================================================
+  PASHIMO TOURS & TRAVEL CONSULTANCY LTD - SUBSYSTEM CORE REGISTER
+  =======================================================================
+  Administrative Command & Owner: Mwogeza Musa
+  Platform System Architecture: Isabirye Latif, Solo Architect
+  Physical Hub: Nateete Business Centre, Room WG 35, Kampala, Uganda
+  =======================================================================
+-->
+<urlset 
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- Primary Enterprise Gateway Hub -->
+    <url>
+        <loc>https://pashimo.cymatichub.xyz/index.html</loc>
+        <lastmod>2026-06-23</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.00</priority>
+    </url>
+
+    <!-- Sectional Gateway: Ugandan Sight Scenarios & Tour Management -->
+    <url>
+        <loc>https://pashimo.cymatichub.xyz/index.html#view-adventure</loc>
+        <lastmod>2026-06-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Sectional Gateway: Vetted Global Career Pathology Register -->
+    <url>
+        <loc>https://pashimo.cymatichub.xyz/index.html#view-portal</loc>
+        <lastmod>2026-06-23</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Physical Hub Verification Coordinate (Office Location Anchor) -->
+    <url>
+        <loc>https://pashimo.cymatichub.xyz/index.html#office-location</loc>
+        <lastmod>2026-06-23</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+
+</urlset>
